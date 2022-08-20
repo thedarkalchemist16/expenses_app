@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter App',
-      home: MyHomePage(),
-    );
-  }
+void main() {
+  runApp(MyHomePage());
 }
 
 class MyHomePage extends StatelessWidget {
@@ -17,11 +9,9 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text("Flutter App"),
       ),
-      body: Center(
-        child: Text('Widget Playground!'),
-      ),
+      body: Center(child: Text('Widget Playground')),
     );
   }
 }
