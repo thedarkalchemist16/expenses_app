@@ -22,7 +22,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               margin: EdgeInsets.all(15),
@@ -36,9 +36,34 @@ class MyHomePage extends StatelessWidget {
                 child: Text('List'),
               ),
             ),
-            Card(
-              color: Colors.deepOrangeAccent,
-              child: Text('List of Transactions'),
+            Column(
+              children: [
+                ...transactions.map((tx) {
+                  return Card(
+                      elevation: 10,
+                      color: Colors.lime,
+                      child: Row(children: [
+                        Container(
+                          child: Text(
+                            tx.amount.toString(),
+                            style: TextStyle(fontWeight: FontWeight.w900),
+                          ),
+                          margin: EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 20,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black38, width: 3),
+                            color: Colors.purple[600],
+                          ),
+                          padding: EdgeInsets.all(5),
+                        ),
+                        Column(
+                          children: [Text(tx.title), Text(tx.date.toString())],
+                        )
+                      ]));
+                }).toList(),
+              ],
             )
           ]),
     ));
