@@ -40,26 +40,48 @@ class MyHomePage extends StatelessWidget {
               children: [
                 ...transactions.map((tx) {
                   return Card(
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: Colors.purple[600],
+                          ),
+                          borderRadius: BorderRadius.circular(20)),
                       elevation: 10,
-                      color: Colors.lime,
+                      color: Colors.purple[200],
                       child: Row(children: [
                         Container(
                           child: Text(
                             tx.amount.toString(),
-                            style: TextStyle(fontWeight: FontWeight.w900),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
                           ),
                           margin: EdgeInsets.symmetric(
                             vertical: 10,
                             horizontal: 20,
                           ),
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black38, width: 3),
-                            color: Colors.purple[600],
+                            border:
+                                Border.all(color: Colors.purple[600], width: 3),
+                            color: Colors.purple[100],
                           ),
                           padding: EdgeInsets.all(5),
                         ),
                         Column(
-                          children: [Text(tx.title), Text(tx.date.toString())],
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              tx.title,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              tx.date.toString(),
+                              style: TextStyle(
+                                color: Colors.grey[800],
+                              ),
+                            )
+                          ],
                         )
                       ]));
                 }).toList(),
