@@ -14,6 +14,9 @@ class MyHomePage extends StatelessWidget {
         amount: 35.99, id: 't2', date: DateTime.now(), title: 'New Shoes')
   ];
 
+  final titleController = TextEditingController();
+  final amoutController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,25 +42,23 @@ class MyHomePage extends StatelessWidget {
             ),
             Card(
               elevation: 10,
-              child: Container(
-                margin: EdgeInsets.all(10),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      TextField(
-                        decoration: InputDecoration(labelText: 'Title'),
-                      ),
-                      TextField(
-                        decoration: InputDecoration(labelText: 'Amount'),
-                      ),
-                      ElevatedButton(
-                        onPressed: (() {}),
-                        child: Text(
-                          'Add Transaction',
-                        ),
-                      ),
-                    ]),
-              ),
+              child:
+                  Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                TextField(
+                  decoration: InputDecoration(labelText: 'Title'),
+                  controller: titleController,
+                ),
+                TextField(
+                  decoration: InputDecoration(labelText: 'Amount'),
+                  controller: amoutController,
+                ),
+                ElevatedButton(
+                  onPressed: (() {}),
+                  child: Text(
+                    'Add Transaction',
+                  ),
+                ),
+              ]),
             ),
             Column(
               children: [
