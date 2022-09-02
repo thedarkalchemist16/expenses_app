@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/widgets/transaction_list.dart';
+import 'package:flutter_complete_guide/widgets/user_transaction.dart';
 
 import 'package:intl/intl.dart';
 
@@ -7,9 +9,6 @@ void main() {
 }
 
 class MyHomePage extends StatelessWidget {
-  final titleController = TextEditingController();
-  final amoutController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,26 +32,7 @@ class MyHomePage extends StatelessWidget {
                 child: Text('List'),
               ),
             ),
-            Card(
-              elevation: 10,
-              child:
-                  Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-                TextField(
-                  decoration: InputDecoration(labelText: 'Title'),
-                  controller: titleController,
-                ),
-                TextField(
-                  decoration: InputDecoration(labelText: 'Amount'),
-                  controller: amoutController,
-                ),
-                ElevatedButton(
-                  onPressed: (() {}),
-                  child: Text(
-                    'Add Transaction',
-                  ),
-                ),
-              ]),
-            ),
+            UserTransaction(),
           ]),
     ));
   }
